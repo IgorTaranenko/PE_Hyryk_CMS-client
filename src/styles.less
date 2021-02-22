@@ -1,9 +1,18 @@
+@import url('./assets/fonts/fonts.less');
+
 @nav-bg: #696969;
 @hover-link: #808080;
-* {
+
+*, h1, h2, h3, h4, h5 {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    .reg();
+}
+h1 {
+    a {
+        .bold();
+    }
 }
 .invalid {
     display: block;
