@@ -1,1 +1,26 @@
-<p>login-page works!</p>
+<form (ngSubmit)="signIn()" [formGroup]="loginForm">
+    <h2>Вход в систему</h2>
+    <div class="form-group">
+        <span class="p-float-label">
+            <input id="email" formControlName="email" type="text" pInputText> 
+            <label for="float-input">Email</label>
+        </span>
+        <span class="invalid" *ngIf="false">Some test message</span>
+    </div>
+    <div class="form-group">
+        <span class="p-float-label">
+            <input id="password" type="password" formControlName="password" pInputText> 
+            <label for="float-input">Password</label>
+        </span>
+        <span class="invalid" *ngIf="false">Some test message</span>
+    </div>
+    <div class="button-block">
+        <button 
+            class="btn btn-primary" 
+            type="submit"
+            [disabled]="loginForm.invalid"
+        >
+            Войти
+        </button>
+    </div>
+</form>
