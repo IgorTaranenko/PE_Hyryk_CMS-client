@@ -5,20 +5,34 @@
             <input id="email" formControlName="email" type="text" pInputText> 
             <label for="float-input">Email</label>
         </span>
-        <span class="invalid" *ngIf="false">Some test message</span>
+        <span class="invalid" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+            <span class="invalid" *ngIf="loginForm.get('email').errors['required']">
+                Email не должен быть пустым
+            </span>
+            <span class="invalid" *ngIf="loginForm.get('email').errors['email']">
+                Некорректный email
+            </span>
+        </span>
     </div>
     <div class="form-group">
         <span class="p-float-label">
             <input id="password" type="password" formControlName="password" pInputText> 
-            <label for="float-input">Password</label>
+            <label for="float-input">Пароль</label>
         </span>
-        <span class="invalid" *ngIf="false">Some test message</span>
+        <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+            <span class="invalid" *ngIf="loginForm.get('password').errors['required']">
+                Пароль не должен быть пустым
+            </span>
+            <span class="invalid" *ngIf="loginForm.get('password').errors['minlength']">
+                Пароль должен быть не менее 6 символов
+            </span>
+        </span>
     </div>
     <div class="button-block">
-        <button 
-            class="btn btn-primary" 
+        <button
+            class="grey-button"
             type="submit"
-            [disabled]="loginForm.invalid"
+            [disabled]="loginForm.invalid || loginForm.disabled"
         >
             Войти
         </button>
