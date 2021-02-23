@@ -8,16 +8,19 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginPageComponent,
         AuthLayoutComponent,
-        SiteLayoutComponent    
+        SiteLayoutComponent,
+        LoaderComponent    
     ],
     imports: [
         BrowserModule,
@@ -27,7 +30,7 @@ import { InputTextModule } from 'primeng/inputtext';
         HttpClientModule,
         TooltipModule.forRoot(),
         InputTextModule,
-        
+        MatProgressSpinnerModule        
     ],
     providers: [],
     bootstrap: [AppComponent]
