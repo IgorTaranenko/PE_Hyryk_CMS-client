@@ -18,7 +18,7 @@ export class AuthService {
         this.token = token;
     }
 
-    getToket(): string {
+    getToken(): string {
         return this.token;
     }
 

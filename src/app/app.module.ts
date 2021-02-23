@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TokenInterceptor } from './shared/classes/token.interceptor';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         InputTextModule,
         MatProgressSpinnerModule        
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            multi: true,
+            useClass: TokenInterceptor
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
