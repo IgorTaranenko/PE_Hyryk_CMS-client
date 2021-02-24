@@ -12,7 +12,7 @@ export class MessageService {
         this.snackBar.open(message, null, {
             duration: 1500,
             horizontalPosition: 'right',
-            verticalPosition: 'bottom',
+            verticalPosition: 'top',
             panelClass: 'custom-snack-bar'
         });
     }
