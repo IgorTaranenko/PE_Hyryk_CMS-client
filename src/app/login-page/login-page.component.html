@@ -1,10 +1,10 @@
 <form (ngSubmit)="signIn()" [formGroup]="loginForm">
     <h2>Вход в систему</h2>
     <div class="form-group">
-        <span class="p-float-label">
-            <input id="email" formControlName="email" type="text" pInputText> 
-            <label for="float-input">Email</label>
-        </span>
+        <mat-form-field class="w100">
+            <mat-label>Email</mat-label>
+            <input id="email" formControlName="email" type="text" matInput>
+        </mat-form-field>
         <span class="invalid" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
             <span class="invalid" *ngIf="loginForm.get('email').errors['required']">
                 Email не должен быть пустым
@@ -14,11 +14,15 @@
             </span>
         </span>
     </div>
+    <!-- Password -->
     <div class="form-group">
-        <span class="p-float-label">
-            <input id="password" type="password" formControlName="password" pInputText> 
-            <label for="float-input">Пароль</label>
-        </span>
+        <mat-form-field class="w100">
+            <mat-label>Пароль</mat-label>
+            <input id="password" type="password" formControlName="password" matInput> 
+        </mat-form-field>
+        <!-- <span class="p-float-label"> -->
+            <!-- <label for="float-input">Пароль</label> -->
+        <!-- </span> -->
         <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
             <span class="invalid" *ngIf="loginForm.get('password').errors['required']">
                 Пароль не должен быть пустым
@@ -30,7 +34,7 @@
     </div>
     <div class="button-block">
         <button
-            class="grey-button"
+            class="orange-button"
             type="submit"
             [disabled]="loginForm.invalid || loginForm.disabled"
         >

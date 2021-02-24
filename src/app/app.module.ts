@@ -2,6 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/classes/token.interceptor';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,10 +18,6 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { InputTextModule } from 'primeng/inputtext';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { TokenInterceptor } from './shared/classes/token.interceptor';
 
 @NgModule({
     declarations: [
@@ -21,7 +25,7 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
         LoginPageComponent,
         AuthLayoutComponent,
         SiteLayoutComponent,
-        LoaderComponent    
+        LoaderComponent
     ],
     imports: [
         BrowserModule,
@@ -30,8 +34,11 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
         ReactiveFormsModule,
         HttpClientModule,
         TooltipModule.forRoot(),
-        InputTextModule,
-        MatProgressSpinnerModule        
+        BrowserAnimationsModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     providers: [
         {

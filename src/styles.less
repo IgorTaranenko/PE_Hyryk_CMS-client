@@ -7,7 +7,10 @@
 
 @nav-bg: #696969;
 @hover-link: #808080;
-
+@orange: #ffa522;
+@orange-hover: #ffba51;
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *, h1, h2, h3, h4, h5 {
     box-sizing: border-box;
     margin: 0;
@@ -19,10 +22,10 @@
     font-size: 12px;
     color: red;
 }
-.grey-button {
+.orange-button {
     text-align: center;
     padding: 10px 40px;
-    background-color: @nav-bg;
+    background-color: @orange;
     color: white;
     font-size: 16px;
     border: none;
@@ -30,12 +33,13 @@
     transition: 0.3s;
     cursor: pointer;
 }
-.grey-button:hover {
-    background: @hover-link;
+.orange-button:hover {
+    background-color: @orange-hover;
 }
-.grey-button:disabled {
+.orange-button:disabled {
     cursor: auto;
-    background-color: rgba(0,0,0, 0.3);
+    background-color: @orange;
+    opacity: 0.6;
 }
 .dark {
     position: absolute;
@@ -48,4 +52,10 @@
     height: 100%;
     background-color: black;
     opacity: 0.6;
+}
+
+.custom-snack-bar{
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 14px 50px !important;
 }
