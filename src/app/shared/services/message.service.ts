@@ -10,7 +10,7 @@ export class MessageService {
 
     open(message: string) {
         this.snackBar.open(message, null, {
-            duration: 1500,
+            duration: 2500,
             horizontalPosition: 'right',
             verticalPosition: 'top',
             panelClass: 'custom-snack-bar'

@@ -2,8 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 import { AuthService } from '../shared/services/auth.service';
+import { LoaderService } from '../shared/services/loader.service';
+import { MessageService } from '../shared/services/message.service';
 
 @Component({
     selector: 'app-login-page',
@@ -13,8 +16,9 @@ import { AuthService } from '../shared/services/auth.service';
 export class LoginPageComponent implements OnInit, OnDestroy {
     
     constructor(
-        private readonly authService: AuthService, private readonly route: ActivatedRoute, 
-        private readonly router: Router    
+        private authService: AuthService, private route: ActivatedRoute, 
+        private router: Router, private messageService: MessageService,
+        private loaderService: LoaderService
     ) { }
     
     loginForm: FormGroup
@@ -29,12 +33,14 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     signIn() {
         this.loginForm.disable();
-
+        this.loaderService.startLoading();
         this.distroyed$ = this.authService.login(this.loginForm.value)
             .subscribe(res => {
+                this.loaderService.stopLoading();
                 console.log("Login success");
             }, error => {
-                console.warn(error);
+                this.loaderService.stopLoading();
+                this.messageService.open(error.error.message);
                 this.loginForm.enable();
         });
     }
