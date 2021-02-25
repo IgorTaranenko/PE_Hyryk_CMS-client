@@ -13,10 +13,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { OverviewComponent } from './components/overview/overview.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
         LoginPageComponent,
         AuthLayoutComponent,
         SiteLayoutComponent,
-        LoaderComponent
+        LoaderComponent,
+        OverviewComponent
     ],
     imports: [
         BrowserModule,

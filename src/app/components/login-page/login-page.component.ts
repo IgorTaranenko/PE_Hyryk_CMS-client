@@ -2,11 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
-import { AuthService } from '../shared/services/auth.service';
-import { LoaderService } from '../shared/services/loader.service';
-import { MessageService } from '../shared/services/message.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { LoaderService } from '../../shared/services/loader.service';
+import { MessageService } from '../../shared/services/message.service';
 
 @Component({
     selector: 'app-login-page',
@@ -29,6 +28,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
             email: new FormControl(null, [Validators.required, Validators.email]),
             password: new FormControl(null, [Validators.required, Validators.minLength(6)])
         });
+        this.route.queryParams.subscribe(params => {
+            if (params.notAuth) {
+                this.messageService.open('Вначале войдите в систему');
+            }
+        });
     }
 
     signIn() {
@@ -37,7 +41,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.distroyed$ = this.authService.login(this.loginForm.value)
             .subscribe(res => {
                 this.loaderService.stopLoading();
-                console.log("Login success");
+                this.router.navigate(['/overview']);
             }, error => {
                 this.loaderService.stopLoading();
                 this.messageService.open(error.error.message);

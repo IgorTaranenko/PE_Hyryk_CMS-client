@@ -9,7 +9,7 @@
 @hover-link: #808080;
 @orange: #ffa522;
 @orange-hover: #ffba51;
-// html, body { height: 100%; }
+html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *, h1, h2, h3, h4, h5 {
     box-sizing: border-box;
@@ -53,6 +53,10 @@
     background-color: black;
     opacity: 0.6;
 }
+.main-title {
+    font-size: 24px;
+    .bold();
+}
 
 .custom-snack-bar{
     margin: 0 !important;
@@ -62,4 +66,26 @@
     min-width: 0 !important;
     max-width: none !important;
     padding: 14px 50px !important;
+}
+
+
+
+
+.h100 {
+    height: 100%;
+}
+.flex {
+    display: flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-vertical-center {
+    align-items: center;
+}
+.flex-horizontal-center {
+    justify-content: center;
 }
