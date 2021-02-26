@@ -1,21 +1,29 @@
-<div class="section-header">
-    <h2>Категории</h2>
-    <button class="orange-button">Добавить категорию</button>
+<div class="flex flex-col h100">
+    <div class="section-header">
+        <h2>Категории</h2>
+        <button class="orange-button">Добавить категорию</button>
+    </div>
+    <div class="section-content">
+        <div class="row h100" *ngIf="categories$ | async as categories; else loader">
+            <div class="collection" *ngIf="categories.length !== 0; else noData">
+                <div class="item" *ngFor="let category of categories">
+                    <a 
+                        [routerLink]="['/categories', category._id]"
+                        style="background: url('/assets/img/nofoto.png') center no-repeat"
+                    >
+                        <h3>{{category.name}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row">
-    <div class="item">
-        <a href="#" style="background: url('/assets/img/nofoto.png') center no-repeat">
-            <h3>Профильные трубы</h3>
-        </a>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #noData>
+    <div class="noData">
+        <img src="/assets/img/warning.svg">
+        <span>Категорий пока нет...</span>
     </div>
-    <div class="item">
-        <a href="#" style="background: url('/assets/img/2.jpeg') center no-repeat">
-            <h3>Арматура</h3>
-        </a>
-    </div>
-    <div class="item">
-        <a href="#" style="background: url('/assets/img/1.png') center no-repeat">
-            <h3>Арматура</h3>
-        </a>
-    </div>
-</div>
+</ng-template>
