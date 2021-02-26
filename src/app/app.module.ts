@@ -18,6 +18,10 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { OverviewComponent } from './components/overview/overview.component';
+import { AnalyticsPageComponent } from './components/analytics-page/analytics-page.component';
+import { HistoryPageComponent } from './components/history-page/history-page.component';
+import { OrderPageComponent } from './components/order-page/order-page.component';
+import { ItemsPageComponent } from './components/items-page/items-page.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { OverviewComponent } from './components/overview/overview.component';
         AuthLayoutComponent,
         SiteLayoutComponent,
         LoaderComponent,
-        OverviewComponent
+        OverviewComponent,
+        AnalyticsPageComponent,
+        HistoryPageComponent,
+        OrderPageComponent,
+        ItemsPageComponent
     ],
     imports: [
         BrowserModule,

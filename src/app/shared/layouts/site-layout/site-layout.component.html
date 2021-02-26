@@ -3,14 +3,16 @@
         <h1 class="main-title">ФОП Гирик</h1>
         <ul class="links">
             <li routerLinkActive="active" *ngFor="let link of links">
-                <div class="link-container">
-                    <a [routerLink]="link.url">{{link.name}}</a>
-                </div>
+                <a [routerLink]="link.url">
+                    <div class="link-container">
+                        {{link.name}}
+                    </div>
+                </a>
             </li>
         </ul>
         <a class="logout" (click)="logout($event)">Выйти</a>
     </nav>
-    <div>
+    <div class="content">
         <router-outlet></router-outlet>
     </div>
 </div>
