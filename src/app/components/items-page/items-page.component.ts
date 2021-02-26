@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/shared/interfaces';
+import { CategoriesService } from 'src/app/shared/services/categories.service';
 
 @Component({
-  selector: 'app-items-page',
-  templateUrl: './items-page.component.html',
-  styleUrls: ['./items-page.component.less']
+    selector: 'app-items-page',
+    templateUrl: './items-page.component.html',
+    styleUrls: ['./items-page.component.less']
 })
 export class ItemsPageComponent implements OnInit {
 
-  constructor() { }
+    categories: Category[] = [];
 
-  ngOnInit(): void {
-  }
+    constructor(private categoriesService: CategoriesService) { }
+
+    ngOnInit(): void {
+        // this.categoriesService.getAll().subscribe(res => {
+            
+        // });
+    }
 
 }

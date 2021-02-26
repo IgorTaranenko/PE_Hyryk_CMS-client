@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { LoaderService } from '../../services/loader.service';
 
 @Component({
     selector: 'app-site-layout',
@@ -16,7 +17,8 @@ export class SiteLayoutComponent implements OnInit {
         {url: 'items', name: 'Ассортимент'},
     ]
     constructor(
-        private router: Router, private authService: AuthService
+        private router: Router, private authService: AuthService,
+        public loaderService: LoaderService
     ) { }
 
     ngOnInit(): void {

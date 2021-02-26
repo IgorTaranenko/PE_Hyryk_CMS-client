@@ -37,13 +37,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     signIn() {
         this.loginForm.disable();
-        this.loaderService.startLoading();
+        this.loaderService.startGlobalLoading();
         this.distroyed$ = this.authService.login(this.loginForm.value)
             .subscribe(res => {
-                this.loaderService.stopLoading();
+                this.loaderService.stopGlobalLoading();
                 this.router.navigate(['/overview']);
             }, error => {
-                this.loaderService.stopLoading();
+                this.loaderService.stopGlobalLoading();
                 this.messageService.open(error.error.message);
                 this.loginForm.enable();
         });

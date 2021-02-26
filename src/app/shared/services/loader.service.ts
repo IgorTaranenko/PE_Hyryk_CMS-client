@@ -5,13 +5,22 @@ import { Injectable } from "@angular/core";
 })
 export class LoaderService {
 
-    isLoading: boolean = false;
+    isLoadingGlobal: boolean = false;
+    isLoadingLocal: boolean = false;
 
-    startLoading():void {
-        this.isLoading = true;
+    startGlobalLoading():void {
+        this.isLoadingGlobal = true;
     }
 
-    stopLoading():void {
-        this.isLoading = false;
+    stopGlobalLoading():void {
+        this.isLoadingGlobal = false;
+    }
+
+    startLocalLoading():void {
+        this.isLoadingLocal = true;
+    }
+
+    stopLocalLoading():void {
+        this.isLoadingLocal = true;
     }
 }

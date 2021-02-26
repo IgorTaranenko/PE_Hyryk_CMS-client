@@ -12,7 +12,10 @@
         </ul>
         <a class="logout" (click)="logout($event)">Выйти</a>
     </nav>
-    <div class="content">
+    <main>
+        <div class="dark" *ngIf="loaderService.isLoadingLocal">
+            <mat-spinner></mat-spinner>
+        </div>
         <router-outlet></router-outlet>
-    </div>
+    </main>
 </div>
