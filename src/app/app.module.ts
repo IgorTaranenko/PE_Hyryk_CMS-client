@@ -22,6 +22,8 @@ import { AnalyticsPageComponent } from './components/analytics-page/analytics-pa
 import { HistoryPageComponent } from './components/history-page/history-page.component';
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { ItemsPageComponent } from './components/items-page/items-page.component';
+import { CategoryComponent } from './components/category/category.component';
+import { PositionComponent } from './components/position/position.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ItemsPageComponent } from './components/items-page/items-page.component
         AnalyticsPageComponent,
         HistoryPageComponent,
         OrderPageComponent,
-        ItemsPageComponent
+        ItemsPageComponent,
+        CategoryComponent,
+        PositionComponent
     ],
     imports: [
         BrowserModule,

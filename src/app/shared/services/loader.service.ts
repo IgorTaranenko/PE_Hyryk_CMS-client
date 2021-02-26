@@ -21,6 +21,6 @@ export class LoaderService {
     }
 
     stopLocalLoading():void {
-        this.isLoadingLocal = true;
+        this.isLoadingLocal = false;
     }
 }

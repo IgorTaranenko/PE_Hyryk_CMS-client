@@ -32,6 +32,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
             if (params.notAuth) {
                 this.messageService.open('Вначале войдите в систему');
             }
+            if (params.oldSession) {
+                this.messageService.open('Время сессии истекло, авторизуйтесь зановов');
+            }
         });
     }
 

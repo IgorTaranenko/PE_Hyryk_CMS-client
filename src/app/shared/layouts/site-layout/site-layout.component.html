@@ -1,4 +1,5 @@
-<div class="flex flex-row h100">
+<!-- <div class="flex flex-row h100"> -->
+<div class="app-container">
     <nav class="flex flex-col">
         <h1 class="main-title">ФОП Гирик</h1>
         <ul class="links">
@@ -13,6 +14,7 @@
         <a class="logout" (click)="logout($event)">Выйти</a>
     </nav>
     <main>
+        <app-loader *ngIf="loaderService.isLoadingLocal"></app-loader>
         <router-outlet></router-outlet>
     </main>
 </div>

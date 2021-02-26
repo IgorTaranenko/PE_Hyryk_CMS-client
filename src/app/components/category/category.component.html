@@ -1,0 +1,48 @@
+<div class="section-header">
+    <h2>
+        <a [routerLink]="['/items']">Категории</a>
+        <span> > {{isNew ? 'создать' : 'редактировать'}} категорию</span>
+        <!-- Категории  -->
+    </h2>
+</div>
+<form 
+    class="category"
+    [formGroup]="categoryForm"
+    (ngSubmit)="onSubmit()"
+>
+    <div class="category-image">
+        <img src="/assets/img/test3.jpg">
+        <button class="orange-button upload-image" type="button">
+            <span class="material-icons mr-1">
+                backup
+            </span>
+            Загрузить изображение
+        </button>
+    </div>
+    <div class="category-form">
+        <mat-form-field class="category-form-name">
+            <mat-label>Название категории</mat-label>
+            <input 
+                id="name" 
+                type="text" 
+                matInput
+                formControlName="name"
+            >
+        </mat-form-field>
+        <span class="invalid category-form-name-invalid" *ngIf="categoryForm.get('name').invalid && categoryForm.get('name').touched">
+            <span class="invalid" *ngIf="categoryForm.get('name').errors['required']">
+                Название не может быть пустым
+            </span>
+        </span>
+        <div class="buttons">
+            <button 
+                class="btn-success" 
+                type="submit"
+                [disabled]="categoryForm.invalid || categoryForm.disabled"
+            >
+                {{isNew ? 'Создать' : 'Сохранить'}} категорию
+            </button>
+            <button class="btn-danger" type="button">Удалить категорию</button>
+        </div>
+    </div>
+</form>
