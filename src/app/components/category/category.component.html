@@ -5,14 +5,27 @@
         <!-- Категории  -->
     </h2>
 </div>
-<form 
+<form
     class="category"
     [formGroup]="categoryForm"
     (ngSubmit)="onSubmit()"
 >
     <div class="category-image">
-        <img src="/assets/img/test3.jpg">
-        <button class="orange-button upload-image" type="button">
+        <img [src]="imagePreview" *ngIf="imagePreview; else noPhoto">
+        <ng-template #noPhoto>
+            <img src="/assets/img/nofoto.png">
+        </ng-template>
+        <input 
+            type="file" 
+            style="display: none;" 
+            #imgInput
+            (change)="onFileUpload($event)"
+        >
+        <button 
+            class="orange-button upload-image"
+            type="button"
+            (click)="triggerClick()"
+        >
             <span class="material-icons mr-1">
                 backup
             </span>
@@ -42,7 +55,7 @@
             >
                 {{isNew ? 'Создать' : 'Сохранить'}} категорию
             </button>
-            <button class="btn-danger" type="button">Удалить категорию</button>
+            <button *ngIf="!isNew" class="btn-danger" type="button" (click)="deleteCategory()">Удалить категорию</button>
         </div>
     </div>
 </form>

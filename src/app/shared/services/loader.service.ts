@@ -1,19 +1,20 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoaderService {
 
-    isLoadingGlobal: boolean = false;
+    isLoadingGlobal: Subject<boolean> = new Subject();
     isLoadingLocal: boolean = false;
 
     startGlobalLoading():void {
-        this.isLoadingGlobal = true;
+        this.isLoadingGlobal.next(true);
     }
 
     stopGlobalLoading():void {
-        this.isLoadingGlobal = false;
+        this.isLoadingGlobal.next(false);
     }
 
     startLocalLoading():void {

@@ -6,6 +6,7 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
@@ -24,6 +25,7 @@ import { OrderPageComponent } from './components/order-page/order-page.component
 import { ItemsPageComponent } from './components/items-page/items-page.component';
 import { CategoryComponent } from './components/category/category.component';
 import { PositionComponent } from './components/position/position.component';
+import { ConfirmDeleteComponent } from './shared/components/confirm-delete/confirm-delete.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { PositionComponent } from './components/position/position.component';
         OrderPageComponent,
         ItemsPageComponent,
         CategoryComponent,
-        PositionComponent
+        PositionComponent,
+        ConfirmDeleteComponent
     ],
     imports: [
         BrowserModule,
@@ -47,8 +50,9 @@ import { PositionComponent } from './components/position/position.component';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        TooltipModule.forRoot(),
         BrowserAnimationsModule,
+        TooltipModule.forRoot(),
+        ModalModule.forRoot(),
         MatProgressSpinnerModule,
         MatSnackBarModule,
         MatFormFieldModule,
