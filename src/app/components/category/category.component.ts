@@ -17,6 +17,7 @@ import { MessageService } from 'src/app/shared/services/message.service';
 })
 export class CategoryComponent implements OnInit {
 
+    loading: boolean = false;
     isNew: boolean = true;
     categoryForm: FormGroup;
     image: File;
@@ -41,9 +42,7 @@ export class CategoryComponent implements OnInit {
                     (params: Params) => {
                         if (params['id']) {
                             this.isNew = false;
-                            setTimeout(() => {
-                                this.loaderService.startGlobalLoading();
-                            }, 0)
+                            this.loading = true;
                             return this.categoriesService.getCategory(params['id']);
                         }
                         return of(null);
@@ -57,11 +56,11 @@ export class CategoryComponent implements OnInit {
                         name: category.name
                     });
                     this.imagePreview = category.imgSrc;
-                    this.loaderService.stopGlobalLoading();
+                    this.loading = false;
                 }
             }, error => {
                 this.messageService.open(error.error.message);
-                this.loaderService.stopGlobalLoading();
+                this.loading = false;
             })
     }
 
@@ -97,7 +96,7 @@ export class CategoryComponent implements OnInit {
         })
     }
 
-    onSubmit() {
+    createOrEdit() {
         let obs$: Observable<Category>;
         this.loaderService.startGlobalLoading();
         if (this.isNew) {

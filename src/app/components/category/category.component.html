@@ -1,3 +1,4 @@
+<app-loader *ngIf="loading"></app-loader>
 <div class="section-header">
     <h2>
         <a [routerLink]="['/items']">Категории</a>
@@ -8,7 +9,7 @@
 <form
     class="category"
     [formGroup]="categoryForm"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="createOrEdit()"
 >
     <div class="category-image">
         <img [src]="imagePreview" *ngIf="imagePreview; else noPhoto">
