@@ -1,5 +1,9 @@
 @import url('/src/assets/fonts/fonts.less');
+section {
+    height: 100%;
+}
 .section-header {
+    flex: 0 0 auto;
     margin-bottom: 50px;
     h2 {
         a {
@@ -8,9 +12,11 @@
     }
 }
 .category {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: row;
     padding-bottom: 30px;
+    margin-bottom: 30px;
     border-bottom: 1px solid #e9e9e9;
     &-image {
         width: 400px;
@@ -44,6 +50,9 @@
             }
         }
     }
+}
+.positions {
+    flex: 1 0 auto;
 }
 .buttons {
     margin: 0 -5px;

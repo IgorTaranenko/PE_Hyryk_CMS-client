@@ -1,62 +1,67 @@
 <app-loader *ngIf="loading"></app-loader>
-<div class="section-header">
-    <h2>
-        <a [routerLink]="['/items']">Категории</a>
-        <span> > {{isNew ? 'создать' : 'редактировать'}} категорию</span>
-        <!-- Категории  -->
-    </h2>
-</div>
-<form
-    class="category"
-    [formGroup]="categoryForm"
-    (ngSubmit)="createOrEdit()"
->
-    <div class="category-image">
-        <img [src]="imagePreview" *ngIf="imagePreview; else noPhoto">
-        <ng-template #noPhoto>
-            <img src="/assets/img/nofoto.png">
-        </ng-template>
-        <input 
-            type="file" 
-            style="display: none;" 
-            #imgInput
-            (change)="onFileUpload($event)"
-        >
-        <button 
-            class="orange-button upload-image"
-            type="button"
-            (click)="triggerClick()"
-        >
-            <span class="material-icons mr-1">
-                backup
-            </span>
-            Загрузить изображение
-        </button>
+<section>
+    <div class="section-header">
+        <h2>
+            <a [routerLink]="['/items']">Категории</a>
+            <span> > {{isNew ? 'создать' : 'редактировать'}} категорию</span>
+            <!-- Категории  -->
+        </h2>
     </div>
-    <div class="category-form">
-        <mat-form-field class="category-form-name">
-            <mat-label>Название категории</mat-label>
+    <form
+        class="category"
+        [formGroup]="categoryForm"
+        (ngSubmit)="createOrEdit()"
+    >
+        <div class="category-image">
+            <img [src]="imagePreview" *ngIf="imagePreview; else noPhoto">
+            <ng-template #noPhoto>
+                <img src="/assets/img/nofoto.png">
+            </ng-template>
             <input 
-                id="name" 
-                type="text" 
-                matInput
-                formControlName="name"
+                type="file" 
+                style="display: none;" 
+                #imgInput
+                (change)="onFileUpload($event)"
             >
-        </mat-form-field>
-        <span class="invalid category-form-name-invalid" *ngIf="categoryForm.get('name').invalid && categoryForm.get('name').touched">
-            <span class="invalid" *ngIf="categoryForm.get('name').errors['required']">
-                Название не может быть пустым
-            </span>
-        </span>
-        <div class="buttons">
             <button 
-                class="btn-success" 
-                type="submit"
-                [disabled]="categoryForm.invalid || categoryForm.disabled"
+                class="orange-button upload-image"
+                type="button"
+                (click)="triggerClick()"
             >
-                {{isNew ? 'Создать' : 'Сохранить'}} категорию
+                <span class="material-icons mr-1">
+                    backup
+                </span>
+                Загрузить изображение
             </button>
-            <button *ngIf="!isNew" class="btn-danger" type="button" (click)="deleteCategory()">Удалить категорию</button>
         </div>
+        <div class="category-form">
+            <mat-form-field class="category-form-name">
+                <mat-label>Название категории</mat-label>
+                <input 
+                    id="name" 
+                    type="text" 
+                    matInput
+                    formControlName="name"
+                >
+            </mat-form-field>
+            <span class="invalid category-form-name-invalid" *ngIf="categoryForm.get('name').invalid && categoryForm.get('name').touched">
+                <span class="invalid" *ngIf="categoryForm.get('name').errors['required']">
+                    Название не может быть пустым
+                </span>
+            </span>
+            <div class="buttons">
+                <button 
+                    class="btn-success" 
+                    type="submit"
+                    [disabled]="categoryForm.invalid || categoryForm.disabled"
+                >
+                    {{isNew ? 'Создать' : 'Сохранить'}} категорию
+                </button>
+                <button *ngIf="!isNew" class="btn-danger" type="button" (click)="deleteCategory()">Удалить категорию</button>
+            </div>
+        </div>
+    </form>
+    <div class="positions">
+        <app-position *ngIf="category" [categoryID]="category._id"></app-position>
     </div>
-</form>
+</section>

@@ -1,1 +1,30 @@
-<p>position works!</p>
+<app-loader *ngIf="loading"></app-loader>
+<div *ngIf="positions.length !== 0; else noContent" class="collection">
+    <div 
+        class="item"
+        *ngFor="let position of positions"
+    >
+        <div class="item-description">
+            <span class="mark"></span>
+            <div class="item-name">{{position.name}}</div>
+            <div class="item-cost">
+                <strong>{{position.cost}} грн</strong> за {{position.units}}
+            </div>
+        </div>
+        <div class="item-actions">
+            <button class="edit">
+                <span class="material-icons">
+                    mode_edit
+                </span>
+            </button>
+            <button class="delete">
+                <span class="material-icons">
+                    delete
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+<ng-template #noContent>
+    <p>В данной категории позиций нет</p>
+</ng-template>

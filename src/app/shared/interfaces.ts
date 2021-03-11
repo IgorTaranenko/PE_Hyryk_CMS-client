@@ -8,3 +8,10 @@ export interface Category {
     imgSrc?: string,
     user?: string
 }
+export interface Position {
+    _id?: string,
+    categoryID?: string,
+    cost: number,
+    units: string,
+    user?: string
+}
