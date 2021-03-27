@@ -26,6 +26,7 @@ import { ItemsPageComponent } from './components/items-page/items-page.component
 import { CategoryComponent } from './components/category/category.component';
 import { PositionComponent } from './components/position/position.component';
 import { ConfirmDeleteComponent } from './shared/components/confirm-delete/confirm-delete.component';
+import { AddOrEditPositionComponent } from './shared/components/add-or-edit-position/add-or-edit-position.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ConfirmDeleteComponent } from './shared/components/confirm-delete/confi
         ItemsPageComponent,
         CategoryComponent,
         PositionComponent,
-        ConfirmDeleteComponent
+        ConfirmDeleteComponent,
+        AddOrEditPositionComponent
     ],
     imports: [
         BrowserModule,

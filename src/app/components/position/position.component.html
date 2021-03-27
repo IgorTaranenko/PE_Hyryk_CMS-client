@@ -1,4 +1,8 @@
 <app-loader *ngIf="loading"></app-loader>
+<div class="positions-header">
+    <h2>Позиции</h2>
+    <button class="add-button" (click)="addOrEdit()">Добавить позицию</button>
+</div>
 <div *ngIf="positions.length !== 0; else noContent" class="collection">
     <div 
         class="item"
@@ -12,12 +16,12 @@
             </div>
         </div>
         <div class="item-actions">
-            <button class="edit">
+            <button class="edit" (click)="addOrEdit(position)">
                 <span class="material-icons">
                     mode_edit
                 </span>
             </button>
-            <button class="delete">
+            <button class="delete" (click)="remove(position._id)">
                 <span class="material-icons">
                     delete
                 </span>

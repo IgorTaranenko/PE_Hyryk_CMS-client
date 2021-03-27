@@ -1,0 +1,16 @@
+<form [formGroup]="positionForm" (ngSubmit)="addOrEditPosition()">
+    <h2>{{position ? 'Редактировать позицию' : 'Добавить позицию'}}</h2>
+    <mat-form-field class="w100">
+        <mat-label>Название</mat-label>
+        <input id="name" type="text" formControlName="name" matInput> 
+    </mat-form-field>
+    <mat-form-field class="w100">
+        <mat-label>Цена в грн.</mat-label>
+        <input id="cost" type="number" formControlName="cost" matInput> 
+    </mat-form-field>
+    <mat-form-field class="w100">
+        <mat-label>Единицы измерения</mat-label>
+        <input id="units" type="text" formControlName="units" matInput> 
+    </mat-form-field>
+    <button type="submit" class="orange-button">{{position ? 'Изменить' : 'Создать'}}</button>
+</form>

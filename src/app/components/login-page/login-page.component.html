@@ -20,9 +20,6 @@
             <mat-label>Пароль</mat-label>
             <input id="password" type="password" formControlName="password" matInput> 
         </mat-form-field>
-        <!-- <span class="p-float-label"> -->
-            <!-- <label for="float-input">Пароль</label> -->
-        <!-- </span> -->
         <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
             <span class="invalid" *ngIf="loginForm.get('password').errors['required']">
                 Пароль не должен быть пустым

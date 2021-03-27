@@ -1,5 +1,25 @@
+@import url('/src/assets/fonts/fonts.less');
+
 @orange: #ffa522;
-.collection {    
+@green: #28a745;
+.positions-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .add-button {
+        padding: 5px 15px;
+        border-radius: 5px;
+        .bold();
+        color: white;
+        background-color: @green;
+        transition: 0.3s;
+        &:hover {
+            background-color: green;
+        }
+    }
+}
+.collection {
     .item {
         height: 40px;
         display: flex;

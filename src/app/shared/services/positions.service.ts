@@ -13,4 +13,13 @@ export class PositionsService {
     getByCategoryId(id: string): Observable<Position[]> {
         return this.http.get<Position[]>(`/api/positions/${id}`);
     }
+    create(position: Position): Observable<Position> {
+        return this.http.post<Position>(`/api/positions`, position);
+    }
+    update(id: string, position: Position): Observable<Position> {
+        return this.http.patch<Position>(`/api/positions/${id}`, position);
+    }
+    remove(id: string) {
+        return this.http.delete<Position>(`/api/positions/${id}`);
+    }
 }

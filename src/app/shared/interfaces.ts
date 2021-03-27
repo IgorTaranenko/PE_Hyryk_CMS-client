@@ -10,7 +10,8 @@ export interface Category {
 }
 export interface Position {
     _id?: string,
-    categoryID?: string,
+    category?: string,
+    name: string,
     cost: number,
     units: string,
     user?: string
